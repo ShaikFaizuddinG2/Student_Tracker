@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>View Student</title>
+
+<style>
+body{
+    font-family:Arial;
+    background:#eef2f7;
+}
+
+.container{
+    width:600px;
+    margin:40px auto;
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 0 10px gray;
+}
+
+input{
+    padding:8px;
+}
+
+button{
+    padding:8px 15px;
+    background:#27ae60;
+    color:white;
+    border:none;
+    border-radius:5px;
+}
+
+.student{
+    margin-top:20px;
+    padding:15px;
+    background:#f8f9fa;
+    border-radius:10px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🎓 View Student</h1>
+
+<form method="post">
+<input type="text" name="roll" placeholder="Enter Roll Number">
+<button type="submit">Search</button>
+</form>
+
+{% if student %}
+
+<div class="student">
+
+<h2>{{ student[1] }}</h2>
+
+<p><b>Roll No:</b> {{ student[0] }}</p>
+
+<h3>Grades</h3>
+
+<ul>
+{% for g in grades %}
+<li>{{ g[0] }} : {{ g[1] }}</li>
+{% endfor %}
+</ul>
+
+<h3>Average : {{ average }}</h3>
+
+</div>
+
+{% endif %}
+
+</div>
+
+</body>
+</html>
